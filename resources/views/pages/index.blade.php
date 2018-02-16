@@ -5,8 +5,12 @@
     <h1>{{$title}}</h1>
     <p>This is the laravel application home page</p>
     <p>
-      <a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
-      <a class="btn btn-success btn-lg" href="/register" role="button">Register</a>
+      @if(Auth::user())
+        <a class="btn btn-primary btn-lg" href="/dashboard" role="button">Dashboard</a>
+      @else
+        <a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
+        <a class="btn btn-success btn-lg" href="/register" role="button">Register</a>
+      @endif
     </p>
   </div>
 @endsection
